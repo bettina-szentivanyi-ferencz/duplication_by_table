@@ -1,0 +1,2 @@
+select *    
+from trax-cpg-dwh-prod.prod.INFORMATION_SCHEMA.COLUMNS  
