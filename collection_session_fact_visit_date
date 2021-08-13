@@ -1,0 +1,9 @@
+select 
+distinct project_name,min(visit_date),
+max(visit_date)
+ from (
+select project_name,session_fk,store_fk,user_fk,visit_date,trax_visit_excluded,trax_visit_resolution,possible_fake_gps_used,distance_between_store_visit_location,visit_flaws,start_time
+from `trax-cpg-dwh-prod.prod.collection_session_fact` 
+where visit_date > '2021-01-01'
+group by project_name,session_fk,store_fk,user_fk,visit_date,trax_visit_excluded,trax_visit_resolution,possible_fake_gps_used,distance_between_store_visit_location,visit_flaws,start_time)
+group by 1;
