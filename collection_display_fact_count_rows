@@ -2,7 +2,9 @@ select
 distinct project_name,count(project_name) as count_rows
  from (
 select project_name,session_fk,store_fk,user_fk,visit_date,trax_display_excluded,trax_display_resolution,display_flaws,start_time
-from `trax-cpg-dwh-prod.prod.collection_display_fact` 
+,count(project_name) as count_rows
+from `trax-cpg-dwh-prod.prod.collection_display_fact` 
 where visit_date > '2021-01-01'
-group by project_name,session_fk,store_fk,user_fk,visit_date,trax_display_excluded,trax_display_resolution,display_flaws,start_time)
-group by 1
+group by project_name,session_fk,store_fk,user_fk,visit_date,trax_display_excluded,trax_display_resolution,display_flaws,start_time
+having count_rows > 1)
+group by 1;
