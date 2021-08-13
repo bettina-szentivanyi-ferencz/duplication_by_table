@@ -1,0 +1,3 @@
+select user_pk, count(*) as user_pk_count from `trax-cpg-dwh-prod.prod.user_dim` 
+group by user_pk
+having user_pk_count > 1
