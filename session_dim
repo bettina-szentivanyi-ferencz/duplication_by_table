@@ -1,0 +1,3 @@
+SELECT project_name, session_pk, count(session_pk) session_count FROM `trax-cpg-dwh-prod.prod.session_dim` 
+group by 1,2
+having session_count > 1
