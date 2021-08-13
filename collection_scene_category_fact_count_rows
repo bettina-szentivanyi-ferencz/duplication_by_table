@@ -1,0 +1,10 @@
+select 
+distinct project_name,count(project_name) as count_rows
+ from (
+select project_name,session_fk,store_fk,user_fk,visit_date,scene_fk,category_id,category_name,category_local_name,trax_category_excluded,trax_category_resolution,scene_category_flaws,start_time
+,count(project_name) as count_rows
+from `trax-cpg-dwh-prod.prod.collection_scene_category_fact` 
+where visit_date > '2021-01-01'
+group by project_name,session_fk,store_fk,user_fk,visit_date,scene_fk,category_id,category_name,category_local_name,trax_category_excluded,trax_category_resolution,scene_category_flaws,start_time
+having count_rows > 1)
+group by 1;
