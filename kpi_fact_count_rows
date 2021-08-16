@@ -1,8 +1,12 @@
-select distinct project_name from (
+select 
+distinct project_name,
+count(project_name) as count_rows
+ from (
 select project_name,user_fk,store_fk,session_fk,visit_date,scene_fk,session_relevance,scene_relevance,live_session_relevance,live_scene_relevance,kpi_id,kpi_name,kpi_english_name,kpi_family_id,kpi_family_name,numerator_type_name,numerator_id,numerator_path,mysql_numerator_table,denominator_type_name,denominator_id,denominator_path,mysql_denominator_table,context_id_type_name,context_id,context_path,mysql_context_table,result,score,numerator_result,denominator_result,weight,target,oos_message_id,oos_message,oos_message_type,result_value,result_type,score_value,kpi_results_parent_fk,kpi_results_pk,kpi_calculation_stage_fk,initiated_by,start_time 
 ,count(project_name) as count_rows
-from `trax-cpg-dwh-prod.prod.kpi_fact` 
-where visit_date > '2021-01-01'
+from `trax-cpg-dwh-prod.prod.kpi_fact` 
+where visit_date > '2021-01-01' and project_name= 'ccjp'
 group by
 project_name,user_fk,store_fk,session_fk,visit_date,scene_fk,session_relevance,scene_relevance,live_session_relevance,live_scene_relevance,kpi_id,kpi_name,kpi_english_name,kpi_family_id,kpi_family_name,numerator_type_name,numerator_id,numerator_path,mysql_numerator_table,denominator_type_name,denominator_id,denominator_path,mysql_denominator_table,context_id_type_name,context_id,context_path,mysql_context_table,result,score,numerator_result,denominator_result,weight,target,oos_message_id,oos_message,oos_message_type,result_value,result_type,score_value,kpi_results_parent_fk,kpi_results_pk,kpi_calculation_stage_fk,initiated_by,start_time
 having count_rows > 1)
+group by 1;
