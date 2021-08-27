@@ -1,0 +1,4 @@
+SELECT 	project_name,	route_id,	route_pk,	external_route_id,	route_name,	route_description,	store_fk,	user_fk,	delete_date,	is_deleted,	route_cycle_name,	route_cycle_start_date,	route_cycle_end_date,
+count(project_name) as session_count FROM `trax-cpg-dwh-int.prod.route_dim`
+group by project_name,	route_id,	route_pk,	external_route_id,	route_name,	route_description,	store_fk,	user_fk,	delete_date,	is_deleted,	route_cycle_name,	route_cycle_start_date,	route_cycle_end_date
+having session_count > 1
