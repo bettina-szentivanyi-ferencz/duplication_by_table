@@ -1,3 +1,3 @@
-SELECT project_name, entity_pk,entity_id, count(session_pk),entity_name,entity_type_id,parent_id, session_count FROM `trax-cpg-dwh-prod.prod.session_dim` 
+SELECT project_name, entity_pk,entity_id, count(session_pk),entity_name,entity_type_id,parent_id, session_count FROM `trax-cpg-dwh-int.prod.custom_entity_dim`
 group by 1,2
 having session_count > 1
