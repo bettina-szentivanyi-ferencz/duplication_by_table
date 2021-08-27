@@ -1,0 +1,4 @@
+SELECT 	project_name,	rep_stores_pk,	rep_stores_id,	sales_rep_fk,	sales_rep_id,	store_fk,	store_id,	start_date,	end_date,
+count(project_name) as session_count FROM `trax-cpg-dwh-int.prod.report_sales_rep_stores`
+group by project_name,	rep_stores_pk,	rep_stores_id,	sales_rep_fk,	sales_rep_id,	store_fk,	store_id,	start_date,	end_date
+having session_count > 1
