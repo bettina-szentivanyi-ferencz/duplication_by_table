@@ -1,0 +1,4 @@
+SELECT 	project_name,	hierarchy_pk,	hierarchy_id,	supervisor_fk,	supervisor_id,	sales_rep_fk,	sales_rep_id,	start_date,	end_date,
+count(project_name) as session_count FROM `trax-cpg-dwh-int.prod.report_operational_hierarchy`
+group by project_name,	hierarchy_pk,	hierarchy_id,	supervisor_fk,	supervisor_id,	sales_rep_fk,	sales_rep_id,	start_date,	end_date
+having session_count > 1
