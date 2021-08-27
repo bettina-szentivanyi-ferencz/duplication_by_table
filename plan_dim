@@ -1,0 +1,4 @@
+SELECT 	project_name,	plan_pk,	plan_id,	plan_name,	start_date,	end_date,	is_active,	description,
+count(project_name) as session_count FROM `trax-cpg-dwh-int.prod.plan_dim`
+group by project_name,	plan_pk,	plan_id,	plan_name,	start_date,	end_date,	is_active,	description
+having session_count > 1
