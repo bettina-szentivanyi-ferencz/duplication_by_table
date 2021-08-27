@@ -1,0 +1,4 @@
+SELECT 	external_target_pk,	external_target_id,	kpi_id,	key_json,	data_json,	start_date,	end_date,	received_time,	key_attribute_name,
+count(project_name) as session_count FROM `trax-cpg-dwh-int.prod.kpi_external_targets_dim`
+group by external_target_pk,	external_target_id,	kpi_id,	key_json,	data_json,	start_date,	end_date,	received_time,	key_attribute_name
+having session_count > 1
