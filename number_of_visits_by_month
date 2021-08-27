@@ -1,0 +1,8 @@
+select project_name, 
+FORMAT_DATE('%b-%Y', visit_date),
+DATE_TRUNC(visit_date, month),
+LAST_DAY(visit_date, MONTH),
+ count(distinct session_pk)
+from `trax-cpg-dwh-prod.prod.session_dim`   
+group by 1,2,3,4
+order by 1,2
