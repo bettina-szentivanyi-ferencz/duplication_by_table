@@ -1,0 +1,4 @@
+SELECT 	project_name,	user_fk,	store_fk,	session_fk,	visit_date,	scene_pk,	scene_uid,	scene_id,	status,	scene_explorer_url,	store_area_code,	task_fk,	delete_date,	is_deleted,	store_task_area_group_item_fk,	start_time,
+count(project_name) as session_count FROM `trax-cpg-dwh-int.prod.scene_dim` 
+group by project_name,	user_fk,	store_fk,	session_fk,	visit_date,	scene_pk,	scene_uid,	scene_id,	status,	scene_explorer_url,	store_area_code,	task_fk,	delete_date,	is_deleted,	store_task_area_group_item_fk,	start_time
+having session_count > 1
