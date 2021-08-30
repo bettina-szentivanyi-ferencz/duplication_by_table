@@ -1,0 +1,7 @@
+
+
+select project_name,	area_group_items_id,	area_group_items_pk,	area_group_items_name,	area_group_items_localization_key,	area_group_items_custom_name,	area_group_items_is_used,	area_group_id,	area_group_fk,	area_group_name,	area_group_localization_key,	area_group_custom_name,
+count(project_name) as count_rows FROM `trax-cpg-dwh-int.prod.store_task_area_group_dim` 
+group by
+project_name,	area_group_items_id,	area_group_items_pk,	area_group_items_name,	area_group_items_localization_key,	area_group_items_custom_name,	area_group_items_is_used,	area_group_id,	area_group_fk,	area_group_name,	area_group_localization_key,	area_group_custom_name
+having count_rows > 1;
