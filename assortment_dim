@@ -1,0 +1,5 @@
+select project_name,	group_id,	assortment_group,	assortment_group_kpi_name,	store_policy_id,	policy_group,	super_group_target,	assortment_id,	assortment_name,	assortment_kpi_name,	assortment_to_product_id,	linked_product_id,	linked_product_fk,	linked_product_name,	local_name,	short_name,	ean_code,	sub_brand,	assortment_additional_attribute,	start_date,	end_date,
+count(project_name) as count_rows FROM `trax-cpg-dwh-int.prod.assortment_dim`
+group by
+project_name,	group_id,	assortment_group,	assortment_group_kpi_name,	store_policy_id,	policy_group,	super_group_target,	assortment_id,	assortment_name,	assortment_kpi_name,	assortment_to_product_id,	linked_product_id,	linked_product_fk,	linked_product_name,	local_name,	short_name,	ean_code,	sub_brand,	assortment_additional_attribute,	start_date,	end_date
+having count_rows > 1
