@@ -1,0 +1,6 @@
+
+select project_name,	users_permissions_pk,	users_permissions_id,	user_name,	entity_type,	entity_id,	start_date,	end_date,	is_default,	store_attribute_filter,
+count(project_name) as count_rows FROM `trax-cpg-dwh-int.prod.users_permissions_dim`
+group by
+project_name,	users_permissions_pk,	users_permissions_id,	user_name,	entity_type,	entity_id,	start_date,	end_date,	is_default,	store_attribute_filter
+having count_rows > 1
