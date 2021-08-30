@@ -1,0 +1,6 @@
+
+select 	task_pk,	project_name,	task_id,	task_name,	task_code,	task_delete_date,	task_group,	task_additional_attribute_1,	task_additional_attribute_2,	task_additional_attribute_3,	task_additional_attribute_4,	fixture,	task_display_name,	included_in_secondary_shelf_report,	location_type_id,	product_category_id,	category_name,	category_group,	scene_type_code,	is_deleted,
+count(project_name) as count_rows FROM `trax-cpg-dwh-int.prod.task_dim`
+group by
+task_pk,	project_name,	task_id,	task_name,	task_code,	task_delete_date,	task_group,	task_additional_attribute_1,	task_additional_attribute_2,	task_additional_attribute_3,	task_additional_attribute_4,	fixture,	task_display_name,	included_in_secondary_shelf_report,	location_type_id,	product_category_id,	category_name,	category_group,	scene_type_code,	is_deleted
+having count_rows > 1
