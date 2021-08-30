@@ -1,0 +1,6 @@
+
+select 	project_name,	user_pk,	user_id,	login_name,	email_address,	mobile_number,	first_name,	last_name,	deletion_date,	operational_role,	user_management_user_id,	supervisor_id,	supervisor_login_name,	supervisor_full_name,	is_deleted,	trax_user,
+count(project_name) as count_rows FROM `trax-cpg-dwh-int.prod.user_dim`
+group by
+project_name,	user_pk,	user_id,	login_name,	email_address,	mobile_number,	first_name,	last_name,	deletion_date,	operational_role,	user_management_user_id,	supervisor_id,	supervisor_login_name,	supervisor_full_name,	is_deleted,	trax_user
+having count_rows > 1
