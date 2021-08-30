@@ -1,0 +1,4 @@
+SELECT 	project_name,	user_fk,	store_fk,	session_fk,	visit_date,	image_pk,	image_uid,	image_id,	scene_fk,	task_fk,	capture_time,	image_validation_time,	local_image_time,	image_upload_time,	image_url_original,	image_url_small,	image_url_large,	delete_date,	is_deleted,	start_time,
+count(project_name) as session_count FROM `trax-cpg-dwh-int.prod.image_dim` 
+group by project_name,	user_fk,	store_fk,	session_fk,	visit_date,	image_pk,	image_uid,	image_id,	scene_fk,	task_fk,	capture_time,	image_validation_time,	local_image_time,	image_upload_time,	image_url_original,	image_url_small,	image_url_large,	delete_date,	is_deleted,	start_time
+having session_count > 1
