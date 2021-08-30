@@ -1,3 +1,4 @@
-SELECT project_name, session_pk, count(session_pk) session_count FROM `trax-cpg-dwh-prod.prod.session_dim` 
-group by 1,2
+SELECT 	project_name,	user_fk,	store_fk,	session_pk,	session_uid,	session_id,	status,	session_explorer_url,	visit_date,	visit_type_uid,	visit_type_name,	visit_type_display_name,	GPS_coordinates_latitude,	GPS_coordinates_longitude,	session_start_time,	session_end_time,	last_item_upload_time,	cycle_name,	application_version,	model_type,	start_time,
+count(project_name) as session_count FROM `trax-cpg-dwh-int.prod.session_dim` 
+group by project_name,	user_fk,	store_fk,	session_pk,	session_uid,	session_id,	status,	session_explorer_url,	visit_date,	visit_type_uid,	visit_type_name,	visit_type_display_name,	GPS_coordinates_latitude,	GPS_coordinates_longitude,	session_start_time,	session_end_time,	last_item_upload_time,	cycle_name,	application_version,	model_type,	start_time
 having session_count > 1
