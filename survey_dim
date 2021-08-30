@@ -1,0 +1,5 @@
+select 	project_name,	survey_id,	survey_pk,	survey_type,	question_type,	question_text,	group_num,	group_name,	status,	question_delete_date,	question_is_deleted,
+count(project_name) as count_rows FROM `trax-cpg-dwh-int.prod.survey_dim`
+group by
+project_name,	survey_id,	survey_pk,	survey_type,	question_type,	question_text,	group_num,	group_name,	status,	question_delete_date,	question_is_deleted
+having count_rows > 1;
