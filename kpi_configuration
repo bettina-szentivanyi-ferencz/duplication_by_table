@@ -1,0 +1,5 @@
+select project_name,	kpi_id,	description,	creation_date,	start_date,	end_date,	kpi_execution_params,	kpi_params,	kpi_configration_params,
+count(project_name) as count_rows FROM `trax-cpg-dwh-int.prod.kpi_configuration`
+group by
+project_name,	kpi_id,	description,	creation_date,	start_date,	end_date,	kpi_execution_params,	kpi_params,	kpi_configration_params
+having count_rows > 1
